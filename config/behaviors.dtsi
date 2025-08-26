@@ -1,3 +1,17 @@
+#define HOLD_TAP(name, tapping, quick_tap, keys) \ // Switch to ZMK_HOLD_TAP later?
+	/ { \
+        behaviors { \
+            name: name { \
+                ZMK_BEHAVIOR_CORE_hold_tap; \
+                tapping_term_ms = <tapping>; \
+				quick_tap_ms = <quick_tap>; \
+				flavor = "tap-preferred"; \
+				#binding-cells = <2>; \
+				bindings = <keys>; \
+            }; \
+        }; \
+    };
+
 /* HOLD-TAP BEHAVIORS */
 HOLD_TAP(cm, 200, 150, &kp &kp)	// Custom mods: default hold-tap
 HOLD_TAP(as, 200, 0, &kp &kp)	// Autoshift: gives second entry with hold
