@@ -4,36 +4,6 @@
     #define COMBO_TERM 30
 #endif
 
-#define ZMK_COMBO(name, combo_bindings, keypos, combo_layers) \
-    / { \
-        combos { \
-            compatible = "zmk,combos"; \
-            combo_ ## name { \
-                timeout-ms = <COMBO_TERM>; \
-                bindings = <combo_bindings>; \
-                key-positions = <keypos>; \
-                layers = <combo_layers>; \
-            }; \
-        }; \
-    };
-
-#if !defined COMBO_ADD_ON
-    #define COMBO_ADD_ON
-#endif
-#define ZMK_COMBO_ADV(name, combo_bindings, keypos, combo_layers, combo_timeout) \
-    / { \
-        combos { \
-            compatible = "zmk,combos"; \
-            combo_ ## name { \
-                timeout-ms = <combo_timeout>; \
-                bindings = <combo_bindings>; \
-                key-positions = <keypos>; \
-                layers = <combo_layers>; \
-                COMBO_ADD_ON \
-            }; \
-        }; \
-    };
-
 /*  --------------------- KEY POSITIONS------------------------								
 																				    
 	╭─────────────────────╮			 ╭─────────────────────╮ 
@@ -60,101 +30,101 @@
 
 
 /* Shortcuts */
-// ZMK_COMBO_ADV(all,   	&kp LC(A),		LT2 LT3, 			ALL, 		COMBO_TERM_FAST)
+// ZMK_COMBO(all,   	&kp LC(A),		LT2 LT3, 			ALL, 		COMBO_TERM_FAST)
 
-ZMK_COMBO_ADV(cut,   	&kp LC(X),			LB2 LB4, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(copy,  	&kp LC(C),			LB2 LB3,			ALL, 		COMBO_TERM_FAST)
-ZMK_COMBO_ADV(paste, 	&kp LC(V),			LB3 LB4,			ALL, 		COMBO_TERM_FAST)
+ZMK_COMBO(cut,   	&kp LC(X),			LB2 LB4, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(copy,  	&kp LC(C),			LB2 LB3,			ALL, 		COMBO_TERM_FAST)
+ZMK_COMBO(paste, 	&kp LC(V),			LB3 LB4,			ALL, 		COMBO_TERM_FAST)
 
-ZMK_COMBO_ADV(plaintxt, &plaintxt,			LB2 LB3 LB4,		NOT_WORK,	COMBO_TERM_VERY_SLOW) 	// AHK: Paste plain text
-ZMK_COMBO_ADV(lowertxt,	&kp LS(LC(RBRC)),	LT4 LT5 LM4 LM5,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste all lowercase
-ZMK_COMBO_ADV(uppertxt,	&kp LS(LC(LBRC)),	LM4 LM5 LB4 LB5,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste all uppercase
-ZMK_COMBO_ADV(sent_txt,	&kp LS(LC(BSLH)),	LM3 LM4 LB3 LB4,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste in Sentence Case
+ZMK_COMBO(plaintxt, &plaintxt,			LB2 LB3 LB4,		NOT_WORK,	COMBO_TERM_VERY_SLOW) 	// AHK: Paste plain text
+ZMK_COMBO(lowertxt,	&kp LS(LC(RBRC)),	LT4 LT5 LM4 LM5,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste all lowercase
+ZMK_COMBO(uppertxt,	&kp LS(LC(LBRC)),	LM4 LM5 LB4 LB5,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste all uppercase
+ZMK_COMBO(sent_txt,	&kp LS(LC(BSLH)),	LM3 LM4 LB3 LB4,	ALL,		COMBO_TERM_VERY_SLOW)	// AHK: Paste in Sentence Case
 
-ZMK_COMBO_ADV(workpaste, &kp LC(LA(V)),		LB2 LB3 LB4,		WORK,   	COMBO_TERM_VERY_SLOW)   // Opens clipboard history app
+ZMK_COMBO(workpaste, &kp LC(LA(V)),		LB2 LB3 LB4,		WORK,   	COMBO_TERM_VERY_SLOW)   // Opens clipboard history app
 
-ZMK_COMBO_ADV(undo, 	&kp LC(Z),			LB1 LB2, 			ALL,		COMBO_TERM_FAST)
-ZMK_COMBO_ADV(redo, 	&kp LC(Y),			LB4 LB5, 			ALL,		COMBO_TERM_FAST)
+ZMK_COMBO(undo, 	&kp LC(Z),			LB1 LB2, 			ALL,		COMBO_TERM_FAST)
+ZMK_COMBO(redo, 	&kp LC(Y),			LB4 LB5, 			ALL,		COMBO_TERM_FAST)
 
-ZMK_COMBO_ADV(ctrl-w,	&kp LC(W),			RH1 RH2 RH3,		ALL,		COMBO_TERM_SLOW)
+ZMK_COMBO(ctrl-w,	&kp LC(W),			RH1 RH2 RH3,		ALL,		COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(TNR,      &tnr,               RB2 RB3 RB4 RB5,    WORK,       COMBO_TERM_VERY_SLOW)
+ZMK_COMBO(TNR,      &tnr,               RB2 RB3 RB4 RB5,    WORK,       COMBO_TERM_VERY_SLOW)
 
 /* Dashes */
-ZMK_COMBO_ADV(emdash, 	&em_dash,			LT2 LT4, 			REDUCED,	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(hyph2,  	&kp MINUS,			RT2 RT4, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(emdash, 	&em_dash,			LT2 LT4, 			REDUCED,	COMBO_TERM_SLOW)
+ZMK_COMBO(hyph2,  	&kp MINUS,			RT2 RT4, 			ALL, 		COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(lthan, 	&cm LA(LSHFT) LT,	LM2 LM3, 			REDUCED,	COMBO_TERM_FAST)
-ZMK_COMBO_ADV(gthan, 	&cm LS(LCTRL) GT,	LM3 LM4, 			REDUCED,	COMBO_TERM_FAST)
-ZMK_COMBO_ADV(endash, 	&enm LA(LCTRL) 0,	LM2 LM4, 			REDUCED,	COMBO_TERM_SLOW)	// Uses a special hold tap. The 0 is because the tap is always an en dash, so it takes no arguments
+ZMK_COMBO(lthan, 	&cm LA(LSHFT) LT,	LM2 LM3, 			REDUCED,	COMBO_TERM_FAST)
+ZMK_COMBO(gthan, 	&cm LS(LCTRL) GT,	LM3 LM4, 			REDUCED,	COMBO_TERM_FAST)
+ZMK_COMBO(endash, 	&enm LA(LCTRL) 0,	LM2 LM4, 			REDUCED,	COMBO_TERM_SLOW)	// Uses a special hold tap. The 0 is because the tap is always an en dash, so it takes no arguments
 
-// ZMK_COMBO_ADV(lbkt,  	&kp LBKT,		RT2 RT3, 			ALL, 		COMBO_TERM_FAST)
-// ZMK_COMBO_ADV(rbkt,  	&kp RBKT,		RT3 RT4, 			ALL, 		COMBO_TERM_FAST)
+// ZMK_COMBO(lbkt,  	&kp LBKT,		RT2 RT3, 			ALL, 		COMBO_TERM_FAST)
+// ZMK_COMBO(rbkt,  	&kp RBKT,		RT3 RT4, 			ALL, 		COMBO_TERM_FAST)
 
-ZMK_COMBO_ADV(lpar,  	&cm RC(RSHFT) LPAR,	RM2 RM3, 			ALL, 		COMBO_TERM_FAST)
-ZMK_COMBO_ADV(rpar,  	&cm RS(RALT) RPAR,	RM3 RM4, 			ALL, 		COMBO_TERM_FAST)
+ZMK_COMBO(lpar,  	&cm RC(RSHFT) LPAR,	RM2 RM3, 			ALL, 		COMBO_TERM_FAST)
+ZMK_COMBO(rpar,  	&cm RS(RALT) RPAR,	RM3 RM4, 			ALL, 		COMBO_TERM_FAST)
 
-ZMK_COMBO_ADV(lbrc,  	&l_brack,			RB2 RB3, 			ALL, 		COMBO_TERM_FAST)		// Added special mod-morph to allow toprow number combos
-ZMK_COMBO_ADV(rbrc,  	&r_brack,			RB3 RB4, 			ALL, 		COMBO_TERM_FAST)
+ZMK_COMBO(lbrc,  	&l_brack,			RB2 RB3, 			ALL, 		COMBO_TERM_FAST)		// Added special mod-morph to allow toprow number combos
+ZMK_COMBO(rbrc,  	&r_brack,			RB3 RB4, 			ALL, 		COMBO_TERM_FAST)
 
 
 /* Other horizontal combos (mostly to avoid pinky/index stretches) */
-ZMK_COMBO_ADV(Q,		&kp Q,				LM1	LM4,			STANDARD,	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(B,		&kp B,				LM3 LM5,			STANDARD,	COMBO_TERM_SLOW)
+ZMK_COMBO(Q,		&kp Q,				LM1	LM4,			STANDARD,	COMBO_TERM_SLOW)
+ZMK_COMBO(B,		&kp B,				LM3 LM5,			STANDARD,	COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(J,		&kp J,				RM1 RM3,			STANDARD,	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(apos,		&kp APOS,			RM2 RM5,			STANDARD,	COMBO_TERM_SLOW)		// Was RT4 RT5 before toprow number combos added
+ZMK_COMBO(J,		&kp J,				RM1 RM3,			STANDARD,	COMBO_TERM_SLOW)
+ZMK_COMBO(apos,		&kp APOS,			RM2 RM5,			STANDARD,	COMBO_TERM_SLOW)		// Was RT4 RT5 before toprow number combos added
 
-ZMK_COMBO_ADV(quotes,	&kp DQT,			RT2 RT5,			ALL,		COMBO_TERM_VERY_SLOW)
+ZMK_COMBO(quotes,	&kp DQT,			RT2 RT5,			ALL,		COMBO_TERM_VERY_SLOW)
 
-ZMK_COMBO_ADV(excl, 	&cm RC(RALT) EXCL,	RM2 RM4, 			ALL,	 	COMBO_TERM_SLOW)
-// ZMK_COMBO_ADV(slashes, 	&slm RC(RALT) &slashes,	RM2 RM4, 		ALL,	 	COMBO_TERM_SLOW)
+ZMK_COMBO(excl, 	&cm RC(RALT) EXCL,	RM2 RM4, 			ALL,	 	COMBO_TERM_SLOW)
+// ZMK_COMBO(slashes, 	&slm RC(RALT) &slashes,	RM2 RM4, 		ALL,	 	COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(compose, 	&kp KP_CMP,	        RM2 RM3 RM4,		ALL,	 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(dcomp,	&dcomp,	    		RB2 RB3 RB4,		ALL,		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(tcomp,	&tcomp,	    		RM2 RM3 RM4 RM5,	ALL,		COMBO_TERM_VERY_SLOW)
+ZMK_COMBO(compose, 	&kp KP_CMP,	        RM2 RM3 RM4,		ALL,	 	COMBO_TERM_SLOW)
+ZMK_COMBO(dcomp,	&dcomp,	    		RB2 RB3 RB4,		ALL,		COMBO_TERM_SLOW)
+ZMK_COMBO(tcomp,	&tcomp,	    		RM2 RM3 RM4 RM5,	ALL,		COMBO_TERM_VERY_SLOW)
 
 
 /* Other symbols (vertical combos) */			
-ZMK_COMBO_ADV(at,    	&kp AT,				LN2 LT2, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(hash,  	&kp HASH,			LN3 LT3, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(dllr,  	&kp DLLR,			LN4 LT4, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(prcnt, 	&kp PRCNT,			LN5 LT5, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(at,    	&kp AT,				LN2 LT2, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(hash,  	&kp HASH,			LN3 LT3, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(dllr,  	&kp DLLR,			LN4 LT4, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(prcnt, 	&kp PRCNT,			LN5 LT5, 			ALL, 		COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(caret, 	&kp CARET,			RN1 RT1, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(plus,  	&kp PLUS,			RN2 RT2, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(star,  	&kp STAR,			RN3 RT3, 			ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(amps,  	&kp AMPS,			RN4 RT4, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(caret, 	&kp CARET,			RN1 RT1, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(plus,  	&kp PLUS,			RN2 RT2, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(star,  	&kp STAR,			RN3 RT3, 			ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(amps,  	&kp AMPS,			RN4 RT4, 			ALL, 		COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(grave, 	&kp GRAVE,			LM2 LB2, 			REDUCED, 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(bslh,  	&kp BSLH,			LM3 LB3, 			REDUCED, 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(tilde, 	&kp TILDE,			LM4 LB4, 			REDUCED, 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(equal, 	&kp EQUAL,			LM5 LB5, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(grave, 	&kp GRAVE,			LM2 LB2, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(bslh,  	&kp BSLH,			LM3 LB3, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(tilde, 	&kp TILDE,			LM4 LB4, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(equal, 	&kp EQUAL,			LM5 LB5, 			REDUCED, 	COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(under, 	&kp UNDER,			RT1 RM1, 			REDUCED, 	COMBO_TERM_SLOW)
-//ZMK_COMBO_ADV(minus, 	&kp MINUS,			RM2 RB2, 			REDUCED, 	COMBO_TERM_SLOW)
-//ZMK_COMBO_ADV(fslh,  	&kp FSLH,			RM3 RB3, 			REDUCED, 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(pipe,  	&kp PIPE,			RT2 RM2, 			REDUCED, 	COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(tilde,  	&kp GRAVE,			RT3 RM3, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(under, 	&kp UNDER,			RT1 RM1, 			REDUCED, 	COMBO_TERM_SLOW)
+//ZMK_COMBO(minus, 	&kp MINUS,			RM2 RB2, 			REDUCED, 	COMBO_TERM_SLOW)
+//ZMK_COMBO(fslh,  	&kp FSLH,			RM3 RB3, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(pipe,  	&kp PIPE,			RT2 RM2, 			REDUCED, 	COMBO_TERM_SLOW)
+ZMK_COMBO(tilde,  	&kp GRAVE,			RT3 RM3, 			REDUCED, 	COMBO_TERM_SLOW)
 
 
 /* Layer Toggle Combos */
-ZMK_COMBO_ADV(qwerty,	&tog QWERTY,		LT1 LT2 LT3 LT4, 	ALL, 		COMBO_TERM_SLOW)
-//ZMK_COMBO_ADV(num,   	&tog NUM,			LT3 LT4, 			ALL, 		COMBO_TERM_SLOW)	// Old numlock combo
-ZMK_COMBO_ADV(num,   	&tog NUM,			LM2 LM3 LM4,		ALL,		COMBO_TERM_SLOW)	// New numlock combo to allow toprow number combos
-ZMK_COMBO_ADV(no_mods, 	&tog DEF_NM,		LB1 LB2 LB3 LB4,	ALL, 		COMBO_TERM_SLOW)
-//ZMK_COMBO_ADV(ohand,	&tog OHAND,			RB2 RB3 RB4,		ALL,		COMBO_TERM_SLOW)
-//ZMK_COMBO_ADV(stay,		&tog STAY,			RM2 RM3 RM4 RM5,	ALL,		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(work,		&tog WORK,			LB1 LB2 RB4 RB5,	ALL,		COMBO_TERM_VERY_SLOW)
+ZMK_COMBO(qwerty,	&tog QWERTY,		LT1 LT2 LT3 LT4, 	ALL, 		COMBO_TERM_SLOW)
+//ZMK_COMBO(num,   	&tog NUM,			LT3 LT4, 			ALL, 		COMBO_TERM_SLOW)	// Old numlock combo
+ZMK_COMBO(num,   	&tog NUM,			LM2 LM3 LM4,		ALL,		COMBO_TERM_SLOW)	// New numlock combo to allow toprow number combos
+ZMK_COMBO(no_mods, 	&tog DEF_NM,		LB1 LB2 LB3 LB4,	ALL, 		COMBO_TERM_SLOW)
+//ZMK_COMBO(ohand,	&tog OHAND,			RB2 RB3 RB4,		ALL,		COMBO_TERM_SLOW)
+//ZMK_COMBO(stay,		&tog STAY,			RM2 RM3 RM4 RM5,	ALL,		COMBO_TERM_SLOW)
+ZMK_COMBO(work,		&tog WORK,			LB1 LB2 RB4 RB5,	ALL,		COMBO_TERM_VERY_SLOW)
 
 
 /* Other Combos */
-ZMK_COMBO_ADV(reset, 	&sys_reset,			RT1 RT5,        	ALL, 		COMBO_TERM_SLOW)
-ZMK_COMBO_ADV(sleep, 	&kp KP_SLP,			LH1 RH3, 	        ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(reset, 	&sys_reset,			RT1 RT5,        	ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(sleep, 	&kp KP_SLP,			LH1 RH3, 	        ALL, 		COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(caps_wd,	&caps_word,			LM1 LM2 LM3,		STANDARD, 	COMBO_TERM_FAST)
-ZMK_COMBO_ADV(caps_lk,	&kp CAPS,			LM1 LM2 LM3 LM4,	STANDARD, 	COMBO_TERM_SLOW)
+ZMK_COMBO(caps_wd,	&caps_word,			LM1 LM2 LM3,		STANDARD, 	COMBO_TERM_FAST)
+ZMK_COMBO(caps_lk,	&kp CAPS,			LM1 LM2 LM3 LM4,	STANDARD, 	COMBO_TERM_SLOW)
 
-ZMK_COMBO_ADV(unstick,	&unstick,			LH1 LH2 LH3,		ALL,		COMBO_TERM_VERY_SLOW)
-ZMK_COMBO_ADV(mute,	    &kp C_MUTE, 		RM1 RB1,        	FUN,    	COMBO_TERM_SLOW)
+ZMK_COMBO(unstick,	&unstick,			LH1 LH2 LH3,		ALL,		COMBO_TERM_VERY_SLOW)
+ZMK_COMBO(mute,	    &kp C_MUTE, 		RM1 RB1,        	FUN,    	COMBO_TERM_SLOW)
 
