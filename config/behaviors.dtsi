@@ -1,3 +1,5 @@
+#define ZMK_BEHAVIOR_CORE_hold_tap    compatible = "zmk,behavior-hold-tap";   		#binding-cells = <2>
+
 #define HOLD_TAP(name, tapping, quick_tap, keys) \ // Switch to ZMK_HOLD_TAP later?
 	/ { \
         behaviors { \
