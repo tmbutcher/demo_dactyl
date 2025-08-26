@@ -6,7 +6,7 @@
 
 #include <zmk-helpers/helper.h> // Requires zmk-helpers module.
 
-#include "key_positions.dtsi"
+#include "key_positions.h"
 #include "mouse.dtsi"
 #include "behaviors.dtsi"
 #include "combos.dtsi"
