@@ -1,0 +1,11 @@
+file_format: "1"
+id: demo_dactyl
+name: Demo Dactyl
+type: shield
+url: https://github.com/tmbutcher/demo_dactyl/
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - demo_dactyl_left
+  - demo_dactyl_right
