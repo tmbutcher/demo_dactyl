@@ -119,7 +119,10 @@ ZMK_COMBO(work,		&tog WORK,			LB1 LB2 RB4 RB5,	ALL,		COMBO_TERM_VERY_SLOW)
 
 
 /* Other Combos */
-ZMK_COMBO(reset, 	&sys_reset,			RT1 RT5,        	ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(reset, 	&sys_reset,			LT1 LT5,        	ALL, 		COMBO_TERM_SLOW)    // Will always reset main half
+ZMK_COMBO(bootlder, &bootloader,        LT1 LT2 LT4 LT5,    ALL,        COMBO_TERM_VERY_SLOW)  // Ditto
+ZMK_COMBO(btclear,  &bt BT_CLR_ALL,     LT1 LT2 LT3 LT4 LT5, ALL,        COMBO_TERM_VERY_SLOW)   
+
 ZMK_COMBO(sleep, 	&kp KP_SLP,			LH1 RH3, 	        ALL, 		COMBO_TERM_SLOW)
 
 ZMK_COMBO(caps_wd,	&caps_word,			LM1 LM2 LM3,		STANDARD, 	COMBO_TERM_FAST)

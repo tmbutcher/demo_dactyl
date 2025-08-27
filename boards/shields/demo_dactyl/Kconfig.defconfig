@@ -4,12 +4,19 @@ if SHIELD_DEMO_DACTYL_LEFT
 config ZMK_KEYBOARD_NAME
     default "Demo_Dactyl"
 
+config ZMK_SPLIT
+    default y
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_MY_KEYBOARD_LEFT || SHIELD_MY_KEYBOARD_RIGHT
+if SHIELD_DEMO_DACTYL_RIGHT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Demo_Dactyl R"
 
 config ZMK_SPLIT
     default y
