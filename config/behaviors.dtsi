@@ -89,7 +89,7 @@ MOD_MORPH(dashing, &em_dash, &en_dash)
 MOD_MORPH(bootsleep, &bootloader, &kp KP_SLP)
 
 MOD_MORPH(hometab, &kp LS(TAB), &kp HOME)
-MOD_MORPH(backdel, &kp BKSP, &kp DEL)
+MOD_MORPH(enddel, &kp DEL, &kp END)
 MOD_MORPH(zeroright, &as RPAR N0, &kp RPAR)
 
 MOD_MORPH(mouse_l, &mmv M_LT, &mmv MLTS)
