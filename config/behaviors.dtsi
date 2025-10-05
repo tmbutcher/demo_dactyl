@@ -1,5 +1,49 @@
-#define ZMK_BEHAVIOR_CORE_hold_tap    compatible = "zmk,behavior-hold-tap";   		#binding-cells = <2>
+/* ZMK_BEHAVIORS */
 
+#define ZMK_BEHAVIOR_CORE_caps_word   compatible = "zmk,behavior-caps-word";  		#binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_hold_tap    compatible = "zmk,behavior-hold-tap";   		#binding-cells = <2>
+#define ZMK_BEHAVIOR_CORE_key_repeat  compatible = "zmk,behavior-key-repeat"; 		#binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_macro       compatible = "zmk,behavior-macro";      		#binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_mod_morph   compatible = "zmk,behavior-mod-morph";  		#binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_sticky_key  compatible = "zmk,behavior-sticky-key"; 		#binding-cells = <1>
+#define ZMK_BEHAVIOR_CORE_tap_dance   compatible = "zmk,behavior-tap-dance";  		#binding-cells = <0>
+#define ZMK_BEHAVIOR_CORE_encoder     compatible = "zmk,behavior-sensor-rotate";	#sensor-binding-cells = <0>
+
+#define ZMK_BEHAVIOR(name, type, ...) \
+    / { \
+        behaviors { \
+            name: name { \
+                ZMK_BEHAVIOR_CORE_ ## type; \
+                __VA_ARGS__ \
+            }; \
+        }; \
+    };
+
+#define MOD_MORPH(name, key1, key2) \
+	/ { \
+        behaviors { \
+            name: name { \
+                ZMK_BEHAVIOR_CORE_mod_morph; \
+                bindings = <key1>, <key2>; \
+				mods = <(MOD_LSFT|MOD_RSFT)>; \
+				}; \
+        }; \
+    };
+
+#define KEEP_MOD_MORPH(name, key1, key2, keep) \  
+	/ { \
+        behaviors { \
+            name: name { \
+                ZMK_BEHAVIOR_CORE_mod_morph; \
+                bindings = <key1>, <key2>; \
+				mods = <(MOD_LSFT|MOD_RSFT)>; \
+				keep-mods = <(keep)>; \   
+				}; \
+        }; \
+    };
+	// Is this necessary? Can an over-ridable default be set for keep-mods?
+	// If multiple keep-mods, need to separate w/ a pipe
+	
 #define HOLD_TAP(name, tapping, quick_tap, keys) \
 	/ { \
         behaviors { \
@@ -12,6 +56,17 @@
             }; \
         }; \
     };
+
+#define ENCODER(name, rot_up, rot_down, tap_ms) \ 
+	/ { \
+		behaviors { \
+			name: name { \
+				ZMK_BEHAVIOR_CORE_encoder; \
+				bindings = <rot_up>, <rot_down>; \
+				tap-ms = <tap_ms>; \
+			}; \
+		}; \
+	};
 
 /* HOLD-TAP BEHAVIORS */
 HOLD_TAP(cm, 200, 150, &kp &kp)	// Custom mods: default hold-tap
@@ -34,7 +89,7 @@ MOD_MORPH(dashing, &em_dash, &en_dash)
 MOD_MORPH(bootsleep, &bootloader, &kp KP_SLP)
 
 MOD_MORPH(hometab, &kp LS(TAB), &kp HOME)
-MOD_MORPH(backdel, &kp BKSP, &kp DEL)
+MOD_MORPH(enddel, &kp DEL, &kp END)
 MOD_MORPH(zeroright, &as RPAR N0, &kp RPAR)
 
 MOD_MORPH(mouse_l, &mmv M_LT, &mmv MLTS)

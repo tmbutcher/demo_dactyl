@@ -6,22 +6,14 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
-
-		col-gpios
-        	= <&pro_micro 21 GPIO_ACTIVE_HIGH>
-        	, <&pro_micro 20 GPIO_ACTIVE_HIGH>
-       		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
-			, <&pro_micro 18 GPIO_ACTIVE_HIGH>
-			, <&pro_micro 15 GPIO_ACTIVE_HIGH>
-        ;
     };
 };
 
 / {
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
-        columns = <6>;
-        rows = <3>;
+        columns = <10>;
+        rows = <5>;
         map = <
 
 //╭─────────┬─────────┬─────────┬─────────┬─────────╮	 ╭─────────┬─────────┬─────────┬─────────┬─────────╮

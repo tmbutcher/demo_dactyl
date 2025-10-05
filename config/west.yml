@@ -6,8 +6,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: tmbutcher
-      url-base: https://github.com/tmbutcher/
     
     - name: urob
       url-base: https://github.com/urob
@@ -16,10 +14,6 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-
-    - name: demo_dactyl
-      remote: tmbutcher
-      revision: main
 
     # Modules
     - name: zmk-helpers
@@ -31,7 +25,6 @@ manifest:
     - name: zmk-auto-layer
       remote: urob
       # revision: main
-
 
   self:
     path: config

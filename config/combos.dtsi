@@ -69,10 +69,10 @@ ZMK_COMBO(rbrc,  	&r_brack,			RB3 RB4, 			ALL, 		COMBO_TERM_FAST)
 
 
 /* Other horizontal combos (mostly to avoid pinky/index stretches) */
-ZMK_COMBO(Q,		&kp Q,				LM1	LM4,			STANDARD,	COMBO_TERM_SLOW)
-ZMK_COMBO(B,		&kp B,				LM3 LM5,			STANDARD,	COMBO_TERM_SLOW)
+ZMK_COMBO(Qcombo,		&kp Q,				LM1	LM4,			STANDARD,	COMBO_TERM_SLOW)
+// ZMK_COMBO(B,		&kp B,				LM3 LM5,			STANDARD,	COMBO_TERM_SLOW)
 
-ZMK_COMBO(J,		&kp J,				RM1 RM3,			STANDARD,	COMBO_TERM_SLOW)
+// ZMK_COMBO(J,		&kp J,				RM1 RM3,			STANDARD,	COMBO_TERM_SLOW)
 ZMK_COMBO(apos,		&kp APOS,			RM2 RM5,			STANDARD,	COMBO_TERM_SLOW)		// Was RT4 RT5 before toprow number combos added
 
 ZMK_COMBO(quotes,	&kp DQT,			RT2 RT5,			ALL,		COMBO_TERM_VERY_SLOW)
@@ -119,12 +119,15 @@ ZMK_COMBO(work,		&tog WORK,			LB1 LB2 RB4 RB5,	ALL,		COMBO_TERM_VERY_SLOW)
 
 
 /* Other Combos */
-ZMK_COMBO(reset, 	&sys_reset,			RT1 RT5,        	ALL, 		COMBO_TERM_SLOW)
+ZMK_COMBO(reset, 	&sys_reset,			LT1 LT5,        	ALL, 		COMBO_TERM_SLOW)    // Will always reset main half
+ZMK_COMBO(bootlder, &bootloader,        LT1 LT2 LT4 LT5,    ALL,        COMBO_TERM_VERY_SLOW)  // Ditto
+ZMK_COMBO(btclear,  &bt BT_CLR_ALL,     LT1 LT2 LT3 LT4 LT5, ALL,        COMBO_TERM_VERY_SLOW)   
+
 ZMK_COMBO(sleep, 	&kp KP_SLP,			LH1 RH3, 	        ALL, 		COMBO_TERM_SLOW)
 
 ZMK_COMBO(caps_wd,	&caps_word,			LM1 LM2 LM3,		STANDARD, 	COMBO_TERM_FAST)
 ZMK_COMBO(caps_lk,	&kp CAPS,			LM1 LM2 LM3 LM4,	STANDARD, 	COMBO_TERM_SLOW)
 
 ZMK_COMBO(unstick,	&unstick,			LH1 LH2 LH3,		ALL,		COMBO_TERM_VERY_SLOW)
-ZMK_COMBO(mute,	    &kp C_MUTE, 		RM1 RB1,        	FUN,    	COMBO_TERM_SLOW)
+ZMK_COMBO(mute,	    &kp C_MUTE, 		RM1 RB1,        	FN,    	COMBO_TERM_SLOW)
 

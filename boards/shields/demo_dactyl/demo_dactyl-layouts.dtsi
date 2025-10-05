@@ -1,3 +1,5 @@
+#include <physical_layouts.dtsi>
+
 / {
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
@@ -60,7 +62,7 @@
     position_map {
         compatible = "zmk,physical-layout-position-map";
 
-        physical_layout0 {
+        layout0: layout0 {
             physical-layout = <&physical_layout0>;
             positions = < >;
         };
